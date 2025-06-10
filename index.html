@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio BUT Réseaux et Télécommunications</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    
+    <!-- Navigation Menu -->
+    <div class="nav-menu">
+        <a href="#header" class="nav-item active" data-section="header">👤</a>
+        <a href="#profil" class="nav-item" data-section="profil">📝</a>
+        <a href="#objectifs" class="nav-item" data-section="objectifs">🎯</a>
+        <a href="#competences" class="nav-item" data-section="competences">⚙️</a>
+        <a href="#sae" class="nav-item" data-section="sae">📚</a>
+        <a href="#projection" class="nav-item" data-section="projection">🔮</a>
+    </div>
+    
+    <div class="container">
+        <!-- Header Section -->
+        <section id="header" class="header">
+            <div class="iut-logo">IUT</div>
+            <h1>
+                Portfolio BUT<br>
+                <span class="highlight">Réseaux & Télécommunications</span>
+            </h1>
+            <div class="subtitle">
+                Documenter et analyser ma trajectoire de développement en mobilisant mes apprentissages et réalisations dans le domaine des réseaux et télécommunications.
+            </div>
+            <div class="subtitle" style="color: #64ffda; font-weight: 600;">
+                <strong>Leconte Enzo</strong> • 2024-2025
+            </div>
+            
+            <div class="scroll-indicator">
+                <span>DÉCOUVRIR</span>
+            </div>
+        </section>
+        
+        <!-- Section Profil -->
+        <section id="profil" class="section">
+            <h2>Description Personnelle</h2>
+            <div class="profile-container">
+                <div class="profile-photo">[P]</div>
+                <div>
+                    <h3 style="color: #64ffda; margin-bottom: 2rem; font-size: 2rem;">Qui suis-je ?</h3>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                        <p style="margin-bottom: 1rem;"><strong style="color: #64ffda;">Nom :</strong> Leconte Enzo</p>
+                        <p style="margin-bottom: 1rem;"><strong style="color: #64ffda;">Formation :</strong> BUT Réseaux et Télécommunications</p>
+                        <p style="margin-bottom: 1rem;"><strong style="color: #64ffda;">Établissement :</strong> IUT Grand Ouest Normandie</p>
+                        <p><strong style="color: #64ffda;">Année :</strong> 1er</p>
+                    </div>
+                    
+                    <h4 style="color: #64ffda; margin: 2rem 0 1rem 0; font-size: 1.3rem;">Mon parcours</h4>
+                    <p style="line-height: 1.6; color: #b0bec5;">[Décrivez brièvement votre parcours scolaire antérieur, vos motivations pour choisir cette formation, et ce qui vous passionne dans le domaine des réseaux et télécommunications]</p>
+                    
+                    <h4 style="color: #64ffda; margin: 2rem 0 1rem 0; font-size: 1.3rem;">Mes centres d'intérêt</h4>
+                    <p style="line-height: 1.6; color: #b0bec5;">[Mentionnez vos hobbies, activités extra-scolaires, et comment ils peuvent enrichir votre profil professionnel]</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section Objectifs -->
+        <section id="objectifs" class="section">
+            <h2>Objectifs de Développement</h2>
+            
+            <h3 style="color: #64ffda; margin-bottom: 1rem; font-size: 1.5rem;">Objectifs Académiques</h3>
+            <ul class="objectives-list">
+                <li>Maîtriser les fondamentaux de l'administration réseau et de la cybersécurité</li>
+                <li>Développer mes compétences en programmation et développement d'applications</li>
+                <li>Approfondir ma connaissance des systèmes de transmission</li>
+                <li>[Ajoutez vos objectifs personnels]</li>
+            </ul>
+
+            <h3 style="color: #64ffda; margin: 3rem 0 1rem 0; font-size: 1.5rem;">Objectifs Professionnels</h3>
+            <ul class="objectives-list">
+                <li>Me spécialiser dans [votre domaine de prédilection]</li>
+                <li>Acquérir une expérience pratique en entreprise</li>
+                <li>Développer mon réseau professionnel</li>
+                <li>Obtenir des certifications reconnues dans le secteur</li>
+            </ul>
+        </section>
+        
+        <!-- Section Compétences -->
+        <section id="competences" class="section">
+            <h2>Référentiel de Compétences</h2>
+            <p style="font-size: 1.2rem; color: #b0bec5; margin-bottom: 3rem;">Le BUT R&T vise le développement de 4 compétences principales avec une progression par niveau :</p>
+            
+            <div class="competence-grid">
+                <div class="competence-card">
+                    <div class="competence-icon">🔧</div>
+                    <div class="competence-title">RT1 - Administrer les réseaux et l'Internet</div>
+                    <div class="competence-description">
+                        <p><strong>Niveau 1 :</strong> Assister l'administrateur du réseau</p>
+                        <p><strong>Niveau 2 :</strong> Administrer un réseau</p>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                    <p style="text-align: center; margin-top: 0.5rem; color: #64ffda; font-weight: bold;">75%</p>
+                </div>
+
+                <div class="competence-card">
+                    <div class="competence-icon">🌐</div>
+                    <div class="competence-title">RT2 - Connecter les entreprises et les usagers</div>
+                    <div class="competence-description">
+                        <p><strong>Niveau 1 :</strong> Découvrir les transmissions et la ToIP</p>
+                        <p><strong>Niveau 2 :</strong> Maîtriser les différentes composantes</p>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 68%"></div>
+                    </div>
+                    <p style="text-align: center; margin-top: 0.5rem; color: #64ffda; font-weight: bold;">68%</p>
+                </div>
+
+                <div class="competence-card">
+                    <div class="competence-icon">💻</div>
+                    <div class="competence-title">RT3 - Créer des outils et applications</div>
+                    <div class="competence-description">
+                        <p><strong>Niveau 1 :</strong> S'intégrer dans un service informatique</p>
+                        <p><strong>Niveau 2 :</strong> Développer une application R&T</p>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 82%"></div>
+                    </div>
+                    <p style="text-align: center; margin-top: 0.5rem; color: #64ffda; font-weight: bold;">82%</p>
+                </div>
+
+                <div class="competence-card">
+                    <div class="competence-icon">🔒</div>
+                    <div class="competence-title">Cyber - Administrer un SI sécurisé</div>
+                    <div class="competence-description">
+                        <p><strong>Niveau 1 :</strong> Sensibiliser aux vulnérabilités</p>
+                        <p><strong>Niveau 2 :</strong> Surveiller un système d'information</p>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%"></div>
+                    </div>
+                    <p style="text-align: center; margin-top: 0.5rem; color: #64ffda; font-weight: bold;">60%</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section SAÉ -->
+        <section id="sae" class="section">
+            <h2>Apprentissages par SAÉ</h2>
+            <p style="margin-bottom: 3rem; font-size: 1.2rem; color: #b0bec5;">Cette section présente mon analyse personnelle de chaque Situation d'Apprentissage et d'Évaluation, mes réalisations et ma progression dans l'acquisition des compétences.</p>
+
+            <!-- SAÉ 1.01 -->
+            <div class="sae-container">
+                <div class="sae-title">📚 SAÉ 1.01 - Se sensibiliser à l'hygiène informatique et à la cybersécurité</div>
+                <p style="color: #b0bec5; margin-bottom: 1.5rem;"><strong>Compétence ciblée :</strong> RT1 - Administrer les réseaux et l'Internet</p>
+                
+                <div class="ac-list">
+                    <h4 style="color: #64ffda; margin-bottom: 1rem;">Apprentissages Critiques travaillés :</h4>
+                    <div class="ac-item">
+                        <span class="ac-code">AC11.02</span>
+                        <span>Comprendre l'architecture et les fondements des systèmes numériques</span>
+                    </div>
+                    <div class="ac-item">
+                        <span class="ac-code">AC11.04</span>
+                        <span>Maîtriser les rôles et principes des systèmes d'exploitation</span>
+                    </div>
+                    <div class="ac-item">
+                        <span class="ac-code">AC11.05</span>
+                        <span>Identifier les dysfonctionnements du réseau local</span>
+                    </div>
+                </div>
+
+                <h4 style="color: #64ffda; margin: 2rem 0 1rem 0;">Mes réalisations :</h4>
+                <div style="display: grid; gap: 1rem;">
+                    <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 10px; border: 2px dashed #64ffda;">
+                        <p style="color: #64ffda; font-weight: bold;">📄 Trace 1 : [Titre du document/réalisation]</p>
+                        <p style="color: #b0bec5; margin-top: 0.5rem;">[Brève description de ce que vous avez produit]</p>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 10px; border: 2px dashed #64ffda;">
+                        <p style="color: #64ffda; font-weight: bold;">📄 Trace 2 : [Titre du document/réalisation]</p>
+                        <p style="color: #b0bec5; margin-top: 0.5rem;">[Brève description de ce que vous avez produit]</p>
+                    </div>
+                </div>
+
+                <div class="reflection-box">
+                    <div class="reflection-title">Réflexion personnelle</div>
+                    <p style="margin-bottom: 1rem;"><strong style="color: #ffb800;">Ce que j'ai appris :</strong> [Décrivez vos apprentissages principaux]</p>
+                    <p style="margin-bottom: 1rem;"><strong style="color: #ffb800;">Difficultés rencontrées :</strong> [Mentionnez les défis et comment vous les avez surmontés]</p>
+                    <p style="margin-bottom: 1rem;"><strong style="color: #ffb800;">Auto-évaluation :</strong> [Évaluez votre niveau d'acquisition des AC]</p>
+                    <p><strong style="color: #ffb800;">Adaptation possible :</strong> [Comment ces compétences peuvent s'appliquer dans d'autres contextes]</p>
+                </div>
+            </div>
+
+            <!-- SAÉ 1.02 -->
+            <div class="sae-container">
+                <div class="sae-title">🖥️ SAÉ 1.02 - S'initier aux réseaux informatiques</div>
+                <p style="color: #b0bec5; margin-bottom: 1.5rem;"><strong>Compétence ciblée :</strong> RT1 - Administrer les réseaux et l'Internet</p>
+                
+                <div class="ac-list">
+                    <h4 style="color: #64ffda; margin-bottom: 1rem;">Apprentissages Critiques travaillés :</h4>
+                    <div class="ac-item">
+                        <span class="ac-code">AC11.01</span>
+                        <span>Maîtriser les lois fondamentales de l'électricité</span>
+                    </div>
+                    <div class="ac-item">
+                        <span class="ac-code">AC11.03</span>
+                        <span>Configurer les fonctions de base du réseau local</span>
+                    </div>
+                    <div class="ac-item">
+                        <span class="ac-code">AC11.06</span>
+                        <span>Installer un poste client, expliquer la procédure</span>
+                    </div>
+                </div>
+
+                <div class="reflection-box">
+                    <div class="reflection-title">Réflexion personnelle</div>
+                    <p>[Votre analyse personnelle pour cette SAÉ - même structure que SAÉ 1.01]</p>
+                </div>
+            </div>
+
+            <!-- Indication pour les autres SAÉ -->
+            <div style="text-align: center; padding: 3rem; background: rgba(100, 255, 218, 0.05); border-radius: 20px; border: 1px solid rgba(100, 255, 218, 0.2);">
+                <p style="color: #64ffda; font-size: 1.2rem; margin-bottom: 1rem;">📝 <em>Continuez à documenter toutes vos SAÉ selon ce modèle...</em></p>
+                <p style="color: #b0bec5;"><strong>SAÉ à inclure :</strong> 1.03, 1.04, 1.05, 2.01, 2.02, 2.03, 2.04, etc.</p>
+                <p style="color: #b0bec5; font-size: 0.9rem; margin-top: 1rem;">Chaque SAÉ doit contenir : Description, AC travaillés, Traces/réalisations, Réflexion personnelle</p>
+            </div>
+        </section>
+        
+        <!-- Section Projection -->
+        <section id="projection" class="section">
+            <h2>Projection et Évaluation Globale</h2>
+            
+            <h3 style="color: #64ffda; margin-bottom: 2rem; font-size: 1.8rem;">Bilan de mes apprentissages</h3>
+            <div class="reflection-box" style="background: rgba(100, 255, 218, 0.1); border-color: rgba(100, 255, 218, 0.3);">
+                <div style="color: #64ffda; font-weight: bold; margin-bottom: 1rem; font-size: 1.2rem;">🎓 Synthèse de ma progression</div>
+                <p style="margin-bottom: 1rem;"><strong style="color: #64ffda;">Travail accompli :</strong> [Synthèse de ce que vous avez réalisé durant cette période]</p>
+                <p style="margin-bottom: 1rem;"><strong style="color: #64ffda;">Progrès constatés :</strong> [Décrivez votre évolution et les compétences acquises]</p>
+                <p style="margin-bottom: 1rem;"><strong style="color: #64ffda;">Points forts identifiés :</strong> [Vos domaines de prédilection]</p>
+                <p><strong style="color: #64ffda;">Axes d'amélioration :</strong> [Ce sur quoi vous devez encore travailler]</p>
+            </div>
+
+            <h3 style="color: #64ffda; margin: 3rem 0 2rem 0; font-size: 1.8rem;">Perspectives d'évolution</h3>
+            <ul class="objectives-list">
+                <li>Plan de progression pour le semestre suivant</li>
+                <li>Objectifs de spécialisation</li>
+                <li>Préparation à l'insertion professionnelle</li>
+                <li>Projets personnels envisagés</li>
+            </ul>
+
+            <div style="text-align: center; margin-top: 4rem; padding: 3rem; background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), rgba(0, 188, 212, 0.1)); border-radius: 20px; border: 1px solid rgba(100, 255, 218, 0.3);">
+                <h3 style="color: #64ffda; margin-bottom: 2rem; font-size: 2rem;">📈 Mon niveau global de progression</h3>
+                <div style="max-width: 500px; margin: 0 auto;">
+                    <div class="progress-bar" style="height: 20px; margin-bottom: 1rem;">
+                        <div class="progress-fill" style="width: 71%; display: flex; align-items: center; justify-content: center; color: #0a0f1c; font-weight: bold;">71% des compétences acquises</div>
+                    </div>
+                    <p style="color: #b0bec5;">Progression satisfaisante vers les objectifs fixés</p>
+                </div>
+            </div>
+
+            <!-- Footer du portfolio -->
+            <div style="margin-top: 5rem; text-align: center; padding: 2rem; border-top: 1px solid rgba(100, 255, 218, 0.2);">
+                <p style="color: #64ffda; font-size: 1.1rem; margin-bottom: 0.5rem;">Portfolio réalisé dans le cadre du BUT Réseaux et Télécommunications</p>
+                <p style="color: #b0bec5;">IUT Grand Ouest Normandie • 2024-2025</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Variables globales pour Three.js
+        let scene, camera, renderer, particles = [];
+        let mouse = { x: 0, y: 0 };
+        let targetMouse = { x: 0, y: 0 };
+        let time = 0;
+
+        // Initialisation Three.js
+        function initThree() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 50;
+
+            renderer = new THREE.WebGLRenderer({ 
+                canvas: document.getElementById('canvas'),
+                antialias: true,
+                alpha: true 
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000, 0);
+
+            createParticleField();
+            animate();
+        }
+
+        // Création du champ de particules
+        function createParticleField() {
+            const geometry = new THREE.BufferGeometry();
+            const particleCount = 150;
+            const positions = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+            const sizes = new Float32Array(particleCount);
+
+            for (let i = 0; i < particleCount; i++) {
+                const i3 = i * 3;
+                
+                // Positions
+                positions[i3] = (Math.random() - 0.5) * 200;
+                positions[i3 + 1] = (Math.random() - 0.5) * 200;
+                positions[i3 + 2] = (Math.random() - 0.5) * 100;
+                
+                // Couleurs (cyan/turquoise)
+                const intensity = Math.random();
+                colors[i3] = 0.4 + intensity * 0.6;     // R
+                colors[i3 + 1] = 1.0;                   // G
+                colors[i3 + 2] = 0.85 + intensity * 0.15; // B
+                
+                // Tailles
+                sizes[i] = Math.random() * 3 + 1;
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+            const material = new THREE.ShaderMaterial({
+                uniforms: {
+                    time: { value: 0 },
+                    mouse: { value: new THREE.Vector2() }
+                },
+                vertexShader: `
+                    attribute float size;
+                    attribute vec3 color;
+                    varying vec3 vColor;
+                    uniform float time;
+                    uniform vec2 mouse;
+                    
+                    void main() {
+                        vColor = color;
+                        vec3 pos = position;
+                        
+                        // Mouvement de flottement
+                        pos.y += sin(time * 0.001 + position.x * 0.01) * 10.0;
+                        pos.x += cos(time * 0.001 + position.y * 0.01) * 5.0;
+                        
+                        // Influence de la souris
+                        vec2 mouseInfluence = mouse * 0.1;
+                        pos.xy += mouseInfluence;
+                        
+                        vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
+                        gl_PointSize = size * (300.0 / -mvPosition.z);
+                        gl_Position = projectionMatrix * mvPosition;
+                    }
+                `,
+                fragmentShader: `
+                    varying vec3 vColor;
+                    
+                    void main() {
+                        float distanceToCenter = distance(gl_PointCoord, vec2(0.5));
+                        float alpha = 1.0 - smoothstep(0.0, 0.5, distanceToCenter);
+                        gl_FragColor = vec4(vColor, alpha * 0.6);
+                    }
+                `,
+                transparent: true,
+                blending: THREE.AdditiveBlending
+            });
+
+            const particleSystem = new THREE.Points(geometry, material);
+            scene.add(particleSystem);
+            particles.push(particleSystem);
+        }
+
+        // Animation principale
+        function animate() {
+            requestAnimationFrame(animate);
+            time += 16;
+
+            // Interpolation douce de la souris
+            mouse.x += (targetMouse.x - mouse.x) * 0.05;
+            mouse.y += (targetMouse.y - mouse.y) * 0.05;
+
+            // Rotation subtile de la caméra
+            camera.position.x = Math.sin(time * 0.0005) * 5;
+            camera.position.y = Math.cos(time * 0.0007) * 3;
+            camera.lookAt(scene.position);
+
+            // Mise à jour des shaders
+            particles.forEach(particle => {
+                particle.material.uniforms.time.value = time;
+                particle.material.uniforms.mouse.value.set(mouse.x * 0.1, mouse.y * 0.1);
+                particle.rotation.y += 0.001;
+            });
+
+            renderer.render(scene, camera);
+        }
+
+        // Event listeners
+        document.addEventListener('mousemove', (e) => {
+            targetMouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+            targetMouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+        });
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Navigation entre les sections
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.nav-item');
+            const sections = document.querySelectorAll('.section, .header');
+
+            // Intersection Observer pour les animations au scroll
+            const observerOptions = {
+                threshold: 0.3,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // Mettre à jour la navigation active
+                        const sectionId = entry.target.id;
+                        navItems.forEach(item => {
+                            item.classList.remove('active');
+                            if (item.getAttribute('data-section') === sectionId) {
+                                item.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Navigation au clic
+            navItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = item.getAttribute('data-section');
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Animation des barres de progression au scroll
+            const progressBars = document.querySelectorAll('.progress-fill');
+            const progressObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const progressBar = entry.target;
+                        const width = progressBar.style.width;
+                        progressBar.style.width = '0%';
+                        setTimeout(() => {
+                            progressBar.style.width = width;
+                        }, 500);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            progressBars.forEach(bar => {
+                progressObserver.observe(bar);
+            });
+        });
+
+        // Initialisation
+        initThree();
+    </script>
+</body>
+</html>
