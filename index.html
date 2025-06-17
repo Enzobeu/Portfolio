@@ -124,140 +124,8 @@
             background: #00bcd4;
         }
         
-        .document-item {
-            background: rgba(100, 255, 218, 0.1);
-            border: 2px solid #64ffda;
-            border-radius: 10px;
-            padding: 1rem;
-            margin: 0.5rem 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .document-item:hover {
-            background: rgba(100, 255, 218, 0.2);
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
-        }
-        
-        .document-icon {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            background: #64ffda;
-            color: #0a0f1c;
-            border-radius: 5px;
-            text-align: center;
-            line-height: 30px;
-            font-weight: bold;
-            margin-right: 10px;
-            font-size: 0.8rem;
-        }
-        
-        .document-title {
-            font-weight: bold;
+        strong {
             color: #64ffda;
-            margin-bottom: 0.5rem;
-        }
-        
-        .document-meta {
-            font-size: 0.9rem;
-            color: #b0bec5;
-            opacity: 0.8;
-        }
-        
-        /* Modal pour affichage des documents */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-        }
-        
-        .modal-content {
-            position: relative;
-            background-color: #1a1f2e;
-            margin: 2% auto;
-            padding: 20px;
-            border: 2px solid #64ffda;
-            border-radius: 10px;
-            width: 90%;
-            height: 90%;
-            max-width: 1200px;
-        }
-        
-        .close {
-            color: #64ffda;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            position: absolute;
-            right: 20px;
-            top: 15px;
-        }
-        
-        .close:hover {
-            color: #00bcd4;
-        }
-        
-        .document-viewer {
-            width: 100%;
-            height: calc(100% - 60px);
-            border: 1px solid #64ffda;
-            border-radius: 5px;
-            margin-top: 40px;
-        }
-        
-        .upload-zone {
-            border: 2px dashed #64ffda;
-            border-radius: 10px;
-            padding: 2rem;
-            text-align: center;
-            background: rgba(100, 255, 218, 0.05);
-            margin: 1rem 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .upload-zone:hover {
-            background: rgba(100, 255, 218, 0.1);
-            border-color: #00bcd4;
-        }
-        
-        .upload-zone.dragover {
-            background: rgba(100, 255, 218, 0.2);
-            border-color: #00bcd4;
-        }
-        
-        .file-input {
-            display: none;
-        }
-        
-        .add-document-btn {
-            background: #64ffda;
-            color: #0a0f1c;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            margin: 0.5rem;
-            transition: all 0.3s ease;
-        }
-        
-        .add-document-btn:hover {
-            background: #00bcd4;
-            transform: translateY(-2px);
-        }
-        
-        .document-list {
-            margin: 1rem 0;
         }
     </style>
 </head>
@@ -294,7 +162,7 @@
                 <p><strong>Formation :</strong> BUT Réseaux et Télécommunications</p>
                 <p><strong>Établissement :</strong> IUT Grand Ouest Normandie</p>
                 <p><strong>Année :</strong> 1ère année BUT R&T</p>
-                <p><strong>Âge :</strong> 19 ans</p>
+                <p><strong>Âge :</strong> 18 ans</p>
             </div>
             
             <h3>Mon parcours</h3>
@@ -389,25 +257,11 @@
                     <li><strong>Guide des bonnes pratiques :</strong> Création d'un guide de sensibilisation</li>
                     <li><strong>Présentation cyber-menaces :</strong> Exposé sur phishing, malwares, ingénierie sociale</li>
                 </ul>
-
-                <h4 style="color: #64ffda;">Mes documents et preuves :</h4>
                 
-                <div class="upload-zone" onclick="triggerFileUpload('sae101')">
-                    <p style="color: #64ffda; font-weight: bold;">📁 Cliquez pour ajouter vos documents</p>
-                    <p style="color: #b0bec5;">Formats acceptés : PDF, Word, PowerPoint, Images, Vidéos</p>
-                    <input type="file" id="file-sae101" class="file-input" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.mp4,.mov" onchange="handleFileUpload(event, 'sae101')">
-                </div>
-                
-                <div id="documents-sae101" class="document-list">
-                    <!-- Les documents ajoutés apparaîtront ici -->
-                </div>
-                
-                <div class="reflection-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
+                <div class="info-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
                     <h4 style="color: #ffb800;">Réflexion personnelle</h4>
-                    <p><strong>Ce que j'ai appris :</strong> J'ai pris conscience de l'importance cruciale de la sensibilisation en cybersécurité. La création du guide m'a permis de maîtriser l'art de la vulgarisation technique.</p>
-                    <p><strong>Difficultés rencontrées :</strong> Adapter le discours technique pour un public non-expert était challengeant. J'ai dû utiliser de nombreuses analogies.</p>
-                    <p><strong>Auto-évaluation :</strong> Niveau acquis à 80%. Je maîtrise les fondamentaux de la cybersécurité et sais transmettre les bonnes pratiques.</p>
-                    <p><strong>Compétences transférables :</strong> Communication, vulgarisation technique, analyse critique de documents professionnels.</p>
+                    <p><strong>Ce que j'ai appris :</strong> J'ai pris conscience de l'importance cruciale de la sensibilisation en cybersécurité.</p>
+                    <p><strong>Auto-évaluation :</strong> Niveau acquis à 80%. Je maîtrise les fondamentaux de la cybersécurité.</p>
                 </div>
             </div>
 
@@ -421,25 +275,11 @@
                     <li><strong>Plan d'adressage IP :</strong> Conception d'un plan d'adressage IPv4 avec subnetting</li>
                     <li><strong>Installation postes clients :</strong> Déploiement automatisé de Windows et Linux</li>
                 </ul>
-
-                <h4 style="color: #64ffda;">Mes documents et preuves :</h4>
                 
-                <div class="upload-zone" onclick="triggerFileUpload('sae102')">
-                    <p style="color: #64ffda; font-weight: bold;">📁 Cliquez pour ajouter vos documents</p>
-                    <p style="color: #b0bec5;">Configurations réseau, schémas, captures d'écran, rapports...</p>
-                    <input type="file" id="file-sae102" class="file-input" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.txt,.cfg,.pcap" onchange="handleFileUpload(event, 'sae102')">
-                </div>
-                
-                <div id="documents-sae102" class="document-list">
-                    <!-- Les documents ajoutés apparaîtront ici -->
-                </div>
-                
-                <div class="reflection-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
+                <div class="info-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
                     <h4 style="color: #ffb800;">Réflexion personnelle</h4>
-                    <p><strong>Ce que j'ai appris :</strong> Bases de l'administration réseau et configuration d'équipements. La manipulation d'équipements réels m'a fait comprendre l'importance de la documentation.</p>
-                    <p><strong>Difficultés rencontrées :</strong> Le subnetting était conceptuellement difficile au début. Les erreurs de configuration m'ont appris l'importance de la méthodologie.</p>
-                    <p><strong>Auto-évaluation :</strong> Niveau acquis à 85%. Autonome sur les configurations de base et capable de diagnostiquer la plupart des problèmes.</p>
-                    <p><strong>Compétences transférables :</strong> Rigueur, documentation technique, résolution méthodique de problèmes.</p>
+                    <p><strong>Ce que j'ai appris :</strong> Bases de l'administration réseau et configuration d'équipements.</p>
+                    <p><strong>Auto-évaluation :</strong> Niveau acquis à 85%. Autonome sur les configurations de base.</p>
                 </div>
             </div>
 
@@ -453,20 +293,8 @@
                     <li><strong>Caractérisation fibre optique :</strong> Mesures de puissance optique, pertes par insertion</li>
                     <li><strong>Rapport de certification :</strong> Document technique avec interprétation et recommandations</li>
                 </ul>
-
-                <h4 style="color: #64ffda;">Mes documents et preuves :</h4>
                 
-                <div class="upload-zone" onclick="triggerFileUpload('sae103')">
-                    <p style="color: #64ffda; font-weight: bold;">📁 Cliquez pour ajouter vos documents</p>
-                    <p style="color: #b0bec5;">Rapports de mesures, certificats, photos équipements, captures d'écran...</p>
-                    <input type="file" id="file-sae103" class="file-input" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.xlsx,.csv,.txt" onchange="handleFileUpload(event, 'sae103')">
-                </div>
-                
-                <div id="documents-sae103" class="document-list">
-                    <!-- Les documents ajoutés apparaîtront ici -->
-                </div>
-                
-                <div class="reflection-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
+                <div class="info-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
                     <h4 style="color: #ffb800;">Réflexion personnelle</h4>
                     <p><strong>Ce que j'ai appris :</strong> Importance des mesures physiques dans les télécommunications.</p>
                     <p><strong>Auto-évaluation :</strong> Niveau acquis à 75%. Maîtrise des procédures de test.</p>
@@ -483,20 +311,8 @@
                     <li><strong>CV numérique interactif :</strong> Version web enrichie du CV avec animations</li>
                     <li><strong>Analyse d'identité numérique :</strong> Étude des traces numériques personnelles</li>
                 </ul>
-
-                <h4 style="color: #64ffda;">Mes documents et preuves :</h4>
                 
-                <div class="upload-zone" onclick="triggerFileUpload('sae104')">
-                    <p style="color: #64ffda; font-weight: bold;">📁 Cliquez pour ajouter vos documents</p>
-                    <p style="color: #b0bec5;">Code source, captures d'écran, maquettes, rapport identité numérique...</p>
-                    <input type="file" id="file-sae104" class="file-input" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.html,.css,.js,.zip" onchange="handleFileUpload(event, 'sae104')">
-                </div>
-                
-                <div id="documents-sae104" class="document-list">
-                    <!-- Les documents ajoutés apparaîtront ici -->
-                </div>
-                
-                <div class="reflection-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
+                <div class="info-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
                     <h4 style="color: #ffb800;">Réflexion personnelle</h4>
                     <p><strong>Ce que j'ai appris :</strong> Développement web et importance de l'identité numérique.</p>
                     <p><strong>Auto-évaluation :</strong> Niveau acquis à 90%. Maîtrise des technologies web de base.</p>
@@ -513,20 +329,8 @@
                     <li><strong>Dashboard réseau automatisé :</strong> Interface web affichant les statistiques réseau en temps réel</li>
                     <li><strong>Base de données inventaire :</strong> Système de gestion des équipements IT</li>
                 </ul>
-
-                <h4 style="color: #64ffda;">Mes documents et preuves :</h4>
                 
-                <div class="upload-zone" onclick="triggerFileUpload('sae105')">
-                    <p style="color: #64ffda; font-weight: bold;">📁 Cliquez pour ajouter vos documents</p>
-                    <p style="color: #b0bec5;">Code Python, bases de données, captures dashboard, rapports d'analyse...</p>
-                    <input type="file" id="file-sae105" class="file-input" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.py,.sql,.csv,.xlsx,.html" onchange="handleFileUpload(event, 'sae105')">
-                </div>
-                
-                <div id="documents-sae105" class="document-list">
-                    <!-- Les documents ajoutés apparaîtront ici -->
-                </div>
-                
-                <div class="reflection-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
+                <div class="info-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
                     <h4 style="color: #ffb800;">Réflexion personnelle</h4>
                     <p><strong>Ce que j'ai appris :</strong> Programmation Python et automatisation système.</p>
                     <p><strong>Auto-évaluation :</strong> Niveau acquis à 88%. Autonome en programmation.</p>
@@ -545,20 +349,8 @@
                     <li><strong>Configuration VLAN avancée :</strong> Mise en place VTP, routage inter-VLAN, ACL de sécurité</li>
                     <li><strong>Services réseau intégrés :</strong> Déploiement DNS, DHCP, NAT/PAT, serveur web</li>
                 </ul>
-
-                <h4 style="color: #64ffda;">Mes documents et preuves :</h4>
                 
-                <div class="upload-zone" onclick="triggerFileUpload('sae201')">
-                    <p style="color: #64ffda; font-weight: bold;">📁 Cliquez pour ajouter vos documents</p>
-                    <p style="color: #b0bec5;">Plans réseau, configurations avancées, documentation technique, tests de connectivité...</p>
-                    <input type="file" id="file-sae201" class="file-input" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.vsd,.cfg,.txt,.pcap" onchange="handleFileUpload(event, 'sae201')">
-                </div>
-                
-                <div id="documents-sae201" class="document-list">
-                    <!-- Les documents ajoutés apparaîtront ici -->
-                </div>
-                
-                <div class="reflection-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
+                <div class="info-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
                     <h4 style="color: #ffb800;">Réflexion personnelle</h4>
                     <p><strong>Ce que j'ai appris :</strong> Vision globale de l'architecture réseau d'entreprise.</p>
                     <p><strong>Auto-évaluation :</strong> Niveau acquis à 82%. Maîtrise des technologies réseau avancées.</p>
@@ -575,20 +367,8 @@
                     <li><strong>Caractérisation antenne WiFi :</strong> Diagramme de rayonnement, gain, adaptation d'impédance</li>
                     <li><strong>Rapport technique client :</strong> Document professionnel avec recommandations</li>
                 </ul>
-
-                <h4 style="color: #64ffda;">Mes documents et preuves :</h4>
                 
-                <div class="upload-zone" onclick="triggerFileUpload('sae202')">
-                    <p style="color: #64ffda; font-weight: bold;">📁 Cliquez pour ajouter vos documents</p>
-                    <p style="color: #b0bec5;">Mesures RF, cartographies, rapports d'analyse, photos équipements...</p>
-                    <input type="file" id="file-sae202" class="file-input" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.xlsx,.csv,.mp4,.mov" onchange="handleFileUpload(event, 'sae202')">
-                </div>
-                
-                <div id="documents-sae202" class="document-list">
-                    <!-- Les documents ajoutés apparaîtront ici -->
-                </div>
-                
-                <div class="reflection-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
+                <div class="info-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
                     <h4 style="color: #ffb800;">Réflexion personnelle</h4>
                     <p><strong>Ce que j'ai appris :</strong> Systèmes de transmission radio et analyse spectrale.</p>
                     <p><strong>Auto-évaluation :</strong> Niveau acquis à 78%. Maîtrise des outils de mesure.</p>
@@ -605,20 +385,8 @@
                     <li><strong>Interface de monitoring réseau :</strong> Dashboard temps réel avec alertes et graphiques</li>
                     <li><strong>API REST pour inventaire :</strong> Service web pour intégration avec systèmes existants</li>
                 </ul>
-
-                <h4 style="color: #64ffda;">Mes documents et preuves :</h4>
                 
-                <div class="upload-zone" onclick="triggerFileUpload('sae203')">
-                    <p style="color: #64ffda; font-weight: bold;">📁 Cliquez pour ajouter vos documents</p>
-                    <p style="color: #b0bec5;">Code source, documentation API, captures application, diagrammes UML...</p>
-                    <input type="file" id="file-sae203" class="file-input" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.html,.css,.js,.php,.py,.sql,.zip" onchange="handleFileUpload(event, 'sae203')">
-                </div>
-                
-                <div id="documents-sae203" class="document-list">
-                    <!-- Les documents ajoutés apparaîtront ici -->
-                </div>
-                
-                <div class="reflection-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
+                <div class="info-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
                     <h4 style="color: #ffb800;">Réflexion personnelle</h4>
                     <p><strong>Ce que j'ai appris :</strong> Développement web full-stack et gestion de projet.</p>
                     <p><strong>Auto-évaluation :</strong> Niveau acquis à 90%. Autonome sur le développement complet.</p>
@@ -635,20 +403,8 @@
                     <li><strong>Documentation technique :</strong> Plans réseau, procédures, guide administrateur, formation utilisateurs</li>
                     <li><strong>Soutenance projet :</strong> Présentation devant jury professionnel avec démonstration en live</li>
                 </ul>
-
-                <h4 style="color: #64ffda;">Mes documents et preuves :</h4>
                 
-                <div class="upload-zone" onclick="triggerFileUpload('sae204')">
-                    <p style="color: #64ffda; font-weight: bold;">📁 Cliquez pour ajouter vos documents</p>
-                    <p style="color: #b0bec5;">Dossier projet complet, soutenance, démonstrations, évaluations jury...</p>
-                    <input type="file" id="file-sae204" class="file-input" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.mp4,.mov,.zip,.cfg,.vsd" onchange="handleFileUpload(event, 'sae204')">
-                </div>
-                
-                <div id="documents-sae204" class="document-list">
-                    <!-- Les documents ajoutés apparaîtront ici -->
-                </div>
-                
-                <div class="reflection-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
+                <div class="info-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
                     <h4 style="color: #ffb800;">Réflexion personnelle</h4>
                     <p><strong>Ce que j'ai appris :</strong> Synthèse de tous les apprentissages dans un contexte réel.</p>
                     <p><strong>Auto-évaluation :</strong> Niveau acquis à 85%. Prêt pour des projets d'envergure.</p>
@@ -737,197 +493,12 @@
                 <p style="color: #64ffda; font-size: 1.2rem; margin-bottom: 0.5rem; font-weight: 600;">Portfolio réalisé dans le cadre du BUT Réseaux et Télécommunications</p>
                 <p style="margin-bottom: 0.5rem;">Leconte Enzo • 1ère année BUT R&T</p>
                 <p style="margin-bottom: 1rem;">IUT Grand Ouest Normandie • 2024-2025</p>
-                <p><strong>Email :</strong> enzo.leconte@etu.unicaen.fr</p>
+                <p><strong>Email :</strong> enzo.leconte@edu.univ-rennes.fr</p>
             </div>
         </section>
     </div>
 
-    <!-- Modal pour visualiser les documents -->
-    <div id="documentModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h3 id="modalTitle" style="color: #64ffda; margin-bottom: 20px;">Visualisation du document</h3>
-            <div id="documentViewer" class="document-viewer">
-                <!-- Le contenu du document sera affiché ici -->
-            </div>
-        </div>
-    </div>
-
     <script>
-        // Stockage des documents par SAÉ
-        const documentsStorage = {};
-
-        // Fonction pour déclencher le sélecteur de fichier
-        function triggerFileUpload(saeId) {
-            document.getElementById('file-' + saeId).click();
-        }
-
-        // Gestion de l'upload de fichiers
-        function handleFileUpload(event, saeId) {
-            const files = event.target.files;
-            
-            if (!documentsStorage[saeId]) {
-                documentsStorage[saeId] = [];
-            }
-
-            for (let i = 0; i < files.length; i++) {
-                const file = files[i];
-                const fileData = {
-                    name: file.name,
-                    size: file.size,
-                    type: file.type,
-                    file: file,
-                    uploadDate: new Date().toLocaleDateString('fr-FR')
-                };
-                
-                documentsStorage[saeId].push(fileData);
-            }
-            
-            displayDocuments(saeId);
-        }
-
-        // Afficher les documents d'une SAÉ
-        function displayDocuments(saeId) {
-            const container = document.getElementById('documents-' + saeId);
-            const documents = documentsStorage[saeId] || [];
-            
-            container.innerHTML = '';
-            
-            documents.forEach((doc, index) => {
-                const docElement = document.createElement('div');
-                docElement.className = 'document-item';
-                docElement.onclick = () => openDocument(doc);
-                
-                const icon = getFileIcon(doc.type);
-                const size = formatFileSize(doc.size);
-                
-                docElement.innerHTML = `
-                    <div class="document-icon">${icon}</div>
-                    <div style="display: inline-block; flex-grow: 1;">
-                        <div class="document-title">${doc.name}</div>
-                        <div class="document-meta">
-                            ${size} • Ajouté le ${doc.uploadDate}
-                            <button onclick="event.stopPropagation(); removeDocument('${saeId}', ${index})" 
-                                    style="background: #ff4444; color: white; border: none; padding: 2px 8px; border-radius: 3px; margin-left: 10px; cursor: pointer;">
-                                Supprimer
-                            </button>
-                        </div>
-                    </div>
-                `;
-                
-                container.appendChild(docElement);
-            });
-        }
-
-        // Obtenir l'icône selon le type de fichier
-        function getFileIcon(type) {
-            if (type.includes('pdf')) return 'PDF';
-            if (type.includes('word') || type.includes('document')) return 'DOC';
-            if (type.includes('powerpoint') || type.includes('presentation')) return 'PPT';
-            if (type.includes('image')) return 'IMG';
-            if (type.includes('video')) return 'VID';
-            if (type.includes('text')) return 'TXT';
-            return 'FILE';
-        }
-
-        // Formater la taille du fichier
-        function formatFileSize(bytes) {
-            if (bytes === 0) return '0 B';
-            const k = 1024;
-            const sizes = ['B', 'KB', 'MB', 'GB'];
-            const i = Math.floor(Math.log(bytes) / Math.log(k));
-            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-        }
-
-        // Ouvrir un document dans la modal
-        function openDocument(doc) {
-            const modal = document.getElementById('documentModal');
-            const title = document.getElementById('modalTitle');
-            const viewer = document.getElementById('documentViewer');
-            
-            title.textContent = doc.name;
-            
-            // Créer l'URL du fichier
-            const fileUrl = URL.createObjectURL(doc.file);
-            
-            // Afficher selon le type de fichier
-            if (doc.type.includes('pdf')) {
-                viewer.innerHTML = `<iframe src="${fileUrl}" width="100%" height="100%" style="border: none;"></iframe>`;
-            } else if (doc.type.includes('image')) {
-                viewer.innerHTML = `<img src="${fileUrl}" style="max-width: 100%; max-height: 100%; object-fit: contain;" alt="${doc.name}">`;
-            } else if (doc.type.includes('video')) {
-                viewer.innerHTML = `<video controls style="max-width: 100%; max-height: 100%;" src="${fileUrl}"></video>`;
-            } else if (doc.type.includes('text')) {
-                // Lire le contenu texte
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    viewer.innerHTML = `<pre style="white-space: pre-wrap; padding: 20px; background: #000; color: #64ffda; height: 100%; overflow: auto;">${e.target.result}</pre>`;
-                };
-                reader.readAsText(doc.file);
-            } else {
-                viewer.innerHTML = `
-                    <div style="text-align: center; padding: 50px; color: #64ffda;">
-                        <h3>Aperçu non disponible</h3>
-                        <p>Type de fichier : ${doc.type}</p>
-                        <p>Taille : ${formatFileSize(doc.size)}</p>
-                        <button onclick="downloadFile('${doc.name}', '${fileUrl}')" class="add-document-btn" style="margin-top: 20px;">
-                            Télécharger le fichier
-                        </button>
-                    </div>
-                `;
-            }
-            
-            modal.style.display = 'block';
-        }
-
-        // Fermer la modal
-        function closeModal() {
-            const modal = document.getElementById('documentModal');
-            modal.style.display = 'none';
-            
-            // Nettoyer les URLs créées
-            const viewer = document.getElementById('documentViewer');
-            const iframe = viewer.querySelector('iframe');
-            const img = viewer.querySelector('img');
-            const video = viewer.querySelector('video');
-            
-            if (iframe && iframe.src.startsWith('blob:')) {
-                URL.revokeObjectURL(iframe.src);
-            }
-            if (img && img.src.startsWith('blob:')) {
-                URL.revokeObjectURL(img.src);
-            }
-            if (video && video.src.startsWith('blob:')) {
-                URL.revokeObjectURL(video.src);
-            }
-        }
-
-        // Supprimer un document
-        function removeDocument(saeId, index) {
-            if (confirm('Êtes-vous sûr de vouloir supprimer ce document ?')) {
-                documentsStorage[saeId].splice(index, 1);
-                displayDocuments(saeId);
-            }
-        }
-
-        // Télécharger un fichier
-        function downloadFile(filename, url) {
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-        }
-
-        // Fermer la modal en cliquant à côté
-        window.onclick = function(event) {
-            const modal = document.getElementById('documentModal');
-            if (event.target === modal) {
-                closeModal();
-            }
-        }
-
         // Navigation simple
         document.querySelectorAll('.nav-simple a').forEach(link => {
             link.addEventListener('click', function(e) {
@@ -944,4 +515,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
