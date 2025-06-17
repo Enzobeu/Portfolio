@@ -3,485 +3,945 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio BUT Réseaux et Télécommunications</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <title>Portfolio BUT R&T - Leconte Enzo</title>
+    <style>
+        body {
+            background: #0a0f1c;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #64ffda;
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        h2 {
+            color: #64ffda;
+            font-size: 2.5rem;
+            margin: 3rem 0 2rem 0;
+            border-bottom: 2px solid #64ffda;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #64ffda;
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem 0;
+        }
+        
+        .section {
+            margin: 4rem 0;
+            padding: 2rem;
+            background: rgba(100, 255, 218, 0.1);
+            border-radius: 10px;
+            border: 1px solid #64ffda;
+        }
+        
+        .info-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border-left: 4px solid #64ffda;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #64ffda;
+        }
+        
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.2);
+            height: 20px;
+            border-radius: 10px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #64ffda, #00bcd4);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0a0f1c;
+            font-weight: bold;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        li {
+            background: rgba(100, 255, 218, 0.1);
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 5px;
+            border-left: 3px solid #64ffda;
+        }
+        
+        .nav-simple {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .nav-simple a {
+            display: block;
+            background: #64ffda;
+            color: #0a0f1c;
+            padding: 10px 15px;
+            margin: 5px 0;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .nav-simple a:hover {
+            background: #00bcd4;
+        }
+        
+        .document-item {
+            background: rgba(100, 255, 218, 0.1);
+            border: 2px solid #64ffda;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .document-item:hover {
+            background: rgba(100, 255, 218, 0.2);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
+        }
+        
+        .document-icon {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #64ffda;
+            color: #0a0f1c;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 0.8rem;
+        }
+        
+        .document-title {
+            font-weight: bold;
+            color: #64ffda;
+            margin-bottom: 0.5rem;
+        }
+        
+        .document-meta {
+            font-size: 0.9rem;
+            color: #b0bec5;
+            opacity: 0.8;
+        }
+        
+        /* Modal pour affichage des documents */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        
+        .modal-content {
+            position: relative;
+            background-color: #1a1f2e;
+            margin: 2% auto;
+            padding: 20px;
+            border: 2px solid #64ffda;
+            border-radius: 10px;
+            width: 90%;
+            height: 90%;
+            max-width: 1200px;
+        }
+        
+        .close {
+            color: #64ffda;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+        
+        .close:hover {
+            color: #00bcd4;
+        }
+        
+        .document-viewer {
+            width: 100%;
+            height: calc(100% - 60px);
+            border: 1px solid #64ffda;
+            border-radius: 5px;
+            margin-top: 40px;
+        }
+        
+        .upload-zone {
+            border: 2px dashed #64ffda;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            background: rgba(100, 255, 218, 0.05);
+            margin: 1rem 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-zone:hover {
+            background: rgba(100, 255, 218, 0.1);
+            border-color: #00bcd4;
+        }
+        
+        .upload-zone.dragover {
+            background: rgba(100, 255, 218, 0.2);
+            border-color: #00bcd4;
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        .add-document-btn {
+            background: #64ffda;
+            color: #0a0f1c;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .add-document-btn:hover {
+            background: #00bcd4;
+            transform: translateY(-2px);
+        }
+        
+        .document-list {
+            margin: 1rem 0;
+        }
+    </style>
 </head>
 <body>
-    <canvas id="canvas"></canvas>
-    
-    <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
+    <div class="nav-simple">
+        <a href="#header">Accueil</a>
+        <a href="#profil">Profil</a>
+        <a href="#objectifs">Objectifs</a>
+        <a href="#competences">Compétences</a>
+        <a href="#sae">SAE</a>
+        <a href="#projection">Projection</a>
     </div>
-    
-    <!-- Navigation Menu -->
-    <div class="nav-menu">
-        <a href="#header" class="nav-item active" data-section="header">👤</a>
-        <a href="#profil" class="nav-item" data-section="profil">📝</a>
-        <a href="#objectifs" class="nav-item" data-section="objectifs">🎯</a>
-        <a href="#competences" class="nav-item" data-section="competences">⚙️</a>
-        <a href="#sae" class="nav-item" data-section="sae">📚</a>
-        <a href="#projection" class="nav-item" data-section="projection">🔮</a>
-    </div>
-    
+
     <div class="container">
-        <!-- Header Section -->
-        <section id="header" class="header">
-            <div class="iut-logo">IUT</div>
-            <h1>
-                Portfolio BUT<br>
-                <span class="highlight">Réseaux & Télécommunications</span>
-            </h1>
-            <div class="subtitle">
-                Documenter et analyser ma trajectoire de développement en mobilisant mes apprentissages et réalisations dans le domaine des réseaux et télécommunications.
-            </div>
-            <div class="subtitle" style="color: #64ffda; font-weight: 600;">
-                <strong>Leconte Enzo</strong> • 2024-2025
-            </div>
-            
-            <div class="scroll-indicator">
-                <span>DÉCOUVRIR</span>
+        <!-- HEADER -->
+        <section id="header" class="section">
+            <h1>Portfolio BUT Réseaux & Télécommunications</h1>
+            <div class="info-box">
+                <p style="text-align: center; font-size: 1.2rem;">
+                    <strong>Leconte Enzo</strong><br>
+                    BUT Réseaux et Télécommunications - 1ère année<br>
+                    IUT Grand Ouest Normandie • 2024-2025
+                </p>
             </div>
         </section>
-        
-        <!-- Section Profil -->
+
+        <!-- PROFIL -->
         <section id="profil" class="section">
             <h2>Description Personnelle</h2>
-            <div class="profile-container">
-                <div class="profile-photo">[P]</div>
-                <div>
-                    <h3 style="color: #64ffda; margin-bottom: 2rem; font-size: 2rem;">Qui suis-je ?</h3>
-                    
-                    <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
-                        <p style="margin-bottom: 1rem;"><strong style="color: #64ffda;">Nom :</strong> Leconte Enzo</p>
-                        <p style="margin-bottom: 1rem;"><strong style="color: #64ffda;">Formation :</strong> BUT Réseaux et Télécommunications</p>
-                        <p style="margin-bottom: 1rem;"><strong style="color: #64ffda;">Établissement :</strong> IUT Grand Ouest Normandie</p>
-                        <p><strong style="color: #64ffda;">Année :</strong> 1er</p>
-                    </div>
-                    
-                    <h4 style="color: #64ffda; margin: 2rem 0 1rem 0; font-size: 1.3rem;">Mon parcours</h4>
-                    <p style="line-height: 1.6; color: #b0bec5;">[Décrivez brièvement votre parcours scolaire antérieur, vos motivations pour choisir cette formation, et ce qui vous passionne dans le domaine des réseaux et télécommunications]</p>
-                    
-                    <h4 style="color: #64ffda; margin: 2rem 0 1rem 0; font-size: 1.3rem;">Mes centres d'intérêt</h4>
-                    <p style="line-height: 1.6; color: #b0bec5;">[Mentionnez vos hobbies, activités extra-scolaires, et comment ils peuvent enrichir votre profil professionnel]</p>
-                </div>
+            
+            <h3>Qui suis-je ?</h3>
+            <div class="info-box">
+                <p><strong>Nom :</strong> Leconte Enzo</p>
+                <p><strong>Formation :</strong> BUT Réseaux et Télécommunications</p>
+                <p><strong>Établissement :</strong> IUT Grand Ouest Normandie</p>
+                <p><strong>Année :</strong> 1ère année BUT R&T</p>
+                <p><strong>Âge :</strong> 19 ans</p>
             </div>
+            
+            <h3>Mon parcours</h3>
+            <p>Diplômé d'un Baccalauréat STI2D spécialité SIN, j'ai développé un intérêt particulier pour les technologies de l'information et les réseaux. Cette formation m'a permis d'acquérir des bases solides en électronique, programmation et systèmes numériques.</p>
+            
+            <p>Ma passion pour l'informatique et les télécommunications m'a naturellement orienté vers le BUT R&T, formation qui me permet d'approfondir mes connaissances en administration réseau, cybersécurité et développement d'applications.</p>
         </section>
-        
-        <!-- Section Objectifs -->
+
+        <!-- OBJECTIFS -->
         <section id="objectifs" class="section">
             <h2>Objectifs de Développement</h2>
             
-            <h3 style="color: #64ffda; margin-bottom: 1rem; font-size: 1.5rem;">Objectifs Académiques</h3>
-            <ul class="objectives-list">
-                <li>Maîtriser les fondamentaux de l'administration réseau et de la cybersécurité</li>
-                <li>Développer mes compétences en programmation et développement d'applications</li>
-                <li>Approfondir ma connaissance des systèmes de transmission</li>
-                <li>[Ajoutez vos objectifs personnels]</li>
+            <h3>Objectifs Académiques</h3>
+            <ul>
+                <li>Maîtriser parfaitement l'administration des réseaux locaux et l'interconnexion de systèmes</li>
+                <li>Développer une expertise en cybersécurité et sensibilisation aux bonnes pratiques</li>
+                <li>Acquérir des compétences solides en programmation et développement d'applications web</li>
+                <li>Comprendre en profondeur les systèmes de transmission et les technologies télécoms</li>
+                <li>Obtenir mon BUT R&T avec mention et poursuivre en Master Cybersécurité</li>
             </ul>
 
-            <h3 style="color: #64ffda; margin: 3rem 0 1rem 0; font-size: 1.5rem;">Objectifs Professionnels</h3>
-            <ul class="objectives-list">
-                <li>Me spécialiser dans [votre domaine de prédilection]</li>
-                <li>Acquérir une expérience pratique en entreprise</li>
-                <li>Développer mon réseau professionnel</li>
-                <li>Obtenir des certifications reconnues dans le secteur</li>
+            <h3>Objectifs Professionnels</h3>
+            <ul>
+                <li>Me spécialiser dans le domaine de la cybersécurité et de l'audit de sécurité</li>
+                <li>Acquérir une première expérience professionnelle lors du stage de 2ème année</li>
+                <li>Développer un réseau professionnel dans le secteur des télécommunications</li>
+                <li>Obtenir des certifications reconnues (CCNA, CompTIA Security+, CEH)</li>
+                <li>Devenir administrateur réseau ou analyste en cybersécurité dans une entreprise innovante</li>
             </ul>
         </section>
-        
-        <!-- Section Compétences -->
+
+        <!-- COMPETENCES -->
         <section id="competences" class="section">
             <h2>Référentiel de Compétences</h2>
-            <p style="font-size: 1.2rem; color: #b0bec5; margin-bottom: 3rem;">Le BUT R&T vise le développement de 4 compétences principales avec une progression par niveau :</p>
             
-            <div class="competence-grid">
-                <div class="competence-card">
-                    <div class="competence-icon">🔧</div>
-                    <div class="competence-title">RT1 - Administrer les réseaux et l'Internet</div>
-                    <div class="competence-description">
-                        <p><strong>Niveau 1 :</strong> Assister l'administrateur du réseau</p>
-                        <p><strong>Niveau 2 :</strong> Administrer un réseau</p>
-                    </div>
+            <div class="grid">
+                <div class="card">
+                    <h3>RT1 - Administrer les réseaux et l'Internet</h3>
+                    <p><strong>Niveau 1 :</strong> Assister l'administrateur du réseau</p>
+                    <p><strong>Niveau 2 :</strong> Administrer un réseau local d'entreprise</p>
+                    <p><strong>Niveau 3 :</strong> Concevoir l'architecture d'un réseau</p>
                     <div class="progress-bar">
-                        <div class="progress-fill" style="width: 75%"></div>
+                        <div class="progress-fill" style="width: 78%;">78%</div>
                     </div>
-                    <p style="text-align: center; margin-top: 0.5rem; color: #64ffda; font-weight: bold;">75%</p>
                 </div>
 
-                <div class="competence-card">
-                    <div class="competence-icon">🌐</div>
-                    <div class="competence-title">RT2 - Connecter les entreprises et les usagers</div>
-                    <div class="competence-description">
-                        <p><strong>Niveau 1 :</strong> Découvrir les transmissions et la ToIP</p>
-                        <p><strong>Niveau 2 :</strong> Maîtriser les différentes composantes</p>
-                    </div>
+                <div class="card">
+                    <h3>RT2 - Connecter les entreprises et les usagers</h3>
+                    <p><strong>Niveau 1 :</strong> Découvrir les transmissions et la ToIP</p>
+                    <p><strong>Niveau 2 :</strong> Maîtriser les différentes composantes</p>
+                    <p><strong>Niveau 3 :</strong> Intégrer solutions télécoms dans entreprise</p>
                     <div class="progress-bar">
-                        <div class="progress-fill" style="width: 68%"></div>
+                        <div class="progress-fill" style="width: 72%;">72%</div>
                     </div>
-                    <p style="text-align: center; margin-top: 0.5rem; color: #64ffda; font-weight: bold;">68%</p>
                 </div>
 
-                <div class="competence-card">
-                    <div class="competence-icon">💻</div>
-                    <div class="competence-title">RT3 - Créer des outils et applications</div>
-                    <div class="competence-description">
-                        <p><strong>Niveau 1 :</strong> S'intégrer dans un service informatique</p>
-                        <p><strong>Niveau 2 :</strong> Développer une application R&T</p>
-                    </div>
+                <div class="card">
+                    <h3>RT3 - Créer des outils et applications</h3>
+                    <p><strong>Niveau 1 :</strong> S'intégrer dans un service informatique</p>
+                    <p><strong>Niveau 2 :</strong> Développer une application R&T</p>
+                    <p><strong>Niveau 3 :</strong> Piloter un projet informatique</p>
                     <div class="progress-bar">
-                        <div class="progress-fill" style="width: 82%"></div>
+                        <div class="progress-fill" style="width: 85%;">85%</div>
                     </div>
-                    <p style="text-align: center; margin-top: 0.5rem; color: #64ffda; font-weight: bold;">82%</p>
                 </div>
 
-                <div class="competence-card">
-                    <div class="competence-icon">🔒</div>
-                    <div class="competence-title">Cyber - Administrer un SI sécurisé</div>
-                    <div class="competence-description">
-                        <p><strong>Niveau 1 :</strong> Sensibiliser aux vulnérabilités</p>
-                        <p><strong>Niveau 2 :</strong> Surveiller un système d'information</p>
-                    </div>
+                <div class="card">
+                    <h3>Cyber - Administrer un SI sécurisé</h3>
+                    <p><strong>Niveau 1 :</strong> Sensibiliser aux vulnérabilités</p>
+                    <p><strong>Niveau 2 :</strong> Surveiller un système d'information</p>
+                    <p><strong>Niveau 3 :</strong> Sécuriser les systèmes informatiques</p>
                     <div class="progress-bar">
-                        <div class="progress-fill" style="width: 60%"></div>
+                        <div class="progress-fill" style="width: 68%;">68%</div>
                     </div>
-                    <p style="text-align: center; margin-top: 0.5rem; color: #64ffda; font-weight: bold;">60%</p>
                 </div>
             </div>
         </section>
-        
-        <!-- Section SAÉ -->
+
+        <!-- SAE -->
         <section id="sae" class="section">
             <h2>Apprentissages par SAÉ</h2>
-            <p style="margin-bottom: 3rem; font-size: 1.2rem; color: #b0bec5;">Cette section présente mon analyse personnelle de chaque Situation d'Apprentissage et d'Évaluation, mes réalisations et ma progression dans l'acquisition des compétences.</p>
-
-            <!-- SAÉ 1.01 -->
-            <div class="sae-container">
-                <div class="sae-title">📚 SAÉ 1.01 - Se sensibiliser à l'hygiène informatique et à la cybersécurité</div>
-                <p style="color: #b0bec5; margin-bottom: 1.5rem;"><strong>Compétence ciblée :</strong> RT1 - Administrer les réseaux et l'Internet</p>
+            
+            <h3>SEMESTRE 1 - Découverte et Initiation</h3>
+            
+            <div class="card" style="margin: 2rem 0;">
+                <h3 style="margin-top: 0;">SAÉ 1.01 - Se sensibiliser à l'hygiène informatique et à la cybersécurité</h3>
+                <p><strong>Compétence ciblée :</strong> RT1 - Administrer les réseaux et l'Internet</p>
                 
-                <div class="ac-list">
-                    <h4 style="color: #64ffda; margin-bottom: 1rem;">Apprentissages Critiques travaillés :</h4>
-                    <div class="ac-item">
-                        <span class="ac-code">AC11.02</span>
-                        <span>Comprendre l'architecture et les fondements des systèmes numériques</span>
-                    </div>
-                    <div class="ac-item">
-                        <span class="ac-code">AC11.04</span>
-                        <span>Maîtriser les rôles et principes des systèmes d'exploitation</span>
-                    </div>
-                    <div class="ac-item">
-                        <span class="ac-code">AC11.05</span>
-                        <span>Identifier les dysfonctionnements du réseau local</span>
-                    </div>
-                </div>
+                <h4 style="color: #64ffda;">Mes réalisations :</h4>
+                <ul>
+                    <li><strong>Charte informatique analysée :</strong> Analyse critique de la charte DSI de l'IUT</li>
+                    <li><strong>Guide des bonnes pratiques :</strong> Création d'un guide de sensibilisation</li>
+                    <li><strong>Présentation cyber-menaces :</strong> Exposé sur phishing, malwares, ingénierie sociale</li>
+                </ul>
 
-                <h4 style="color: #64ffda; margin: 2rem 0 1rem 0;">Mes réalisations :</h4>
-                <div style="display: grid; gap: 1rem;">
-                    <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 10px; border: 2px dashed #64ffda;">
-                        <p style="color: #64ffda; font-weight: bold;">📄 Trace 1 : [Titre du document/réalisation]</p>
-                        <p style="color: #b0bec5; margin-top: 0.5rem;">[Brève description de ce que vous avez produit]</p>
-                    </div>
-                    <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 10px; border: 2px dashed #64ffda;">
-                        <p style="color: #64ffda; font-weight: bold;">📄 Trace 2 : [Titre du document/réalisation]</p>
-                        <p style="color: #b0bec5; margin-top: 0.5rem;">[Brève description de ce que vous avez produit]</p>
-                    </div>
+                <h4 style="color: #64ffda;">Mes documents et preuves :</h4>
+                
+                <div class="upload-zone" onclick="triggerFileUpload('sae101')">
+                    <p style="color: #64ffda; font-weight: bold;">📁 Cliquez pour ajouter vos documents</p>
+                    <p style="color: #b0bec5;">Formats acceptés : PDF, Word, PowerPoint, Images, Vidéos</p>
+                    <input type="file" id="file-sae101" class="file-input" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.mp4,.mov" onchange="handleFileUpload(event, 'sae101')">
                 </div>
-
-                <div class="reflection-box">
-                    <div class="reflection-title">Réflexion personnelle</div>
-                    <p style="margin-bottom: 1rem;"><strong style="color: #ffb800;">Ce que j'ai appris :</strong> [Décrivez vos apprentissages principaux]</p>
-                    <p style="margin-bottom: 1rem;"><strong style="color: #ffb800;">Difficultés rencontrées :</strong> [Mentionnez les défis et comment vous les avez surmontés]</p>
-                    <p style="margin-bottom: 1rem;"><strong style="color: #ffb800;">Auto-évaluation :</strong> [Évaluez votre niveau d'acquisition des AC]</p>
-                    <p><strong style="color: #ffb800;">Adaptation possible :</strong> [Comment ces compétences peuvent s'appliquer dans d'autres contextes]</p>
+                
+                <div id="documents-sae101" class="document-list">
+                    <!-- Les documents ajoutés apparaîtront ici -->
+                </div>
+                
+                <div class="reflection-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
+                    <h4 style="color: #ffb800;">Réflexion personnelle</h4>
+                    <p><strong>Ce que j'ai appris :</strong> J'ai pris conscience de l'importance cruciale de la sensibilisation en cybersécurité. La création du guide m'a permis de maîtriser l'art de la vulgarisation technique.</p>
+                    <p><strong>Difficultés rencontrées :</strong> Adapter le discours technique pour un public non-expert était challengeant. J'ai dû utiliser de nombreuses analogies.</p>
+                    <p><strong>Auto-évaluation :</strong> Niveau acquis à 80%. Je maîtrise les fondamentaux de la cybersécurité et sais transmettre les bonnes pratiques.</p>
+                    <p><strong>Compétences transférables :</strong> Communication, vulgarisation technique, analyse critique de documents professionnels.</p>
                 </div>
             </div>
 
-            <!-- SAÉ 1.02 -->
-            <div class="sae-container">
-                <div class="sae-title">🖥️ SAÉ 1.02 - S'initier aux réseaux informatiques</div>
-                <p style="color: #b0bec5; margin-bottom: 1.5rem;"><strong>Compétence ciblée :</strong> RT1 - Administrer les réseaux et l'Internet</p>
+            <div class="card" style="margin: 2rem 0;">
+                <h3 style="margin-top: 0;">SAÉ 1.02 - S'initier aux réseaux informatiques</h3>
+                <p><strong>Compétence ciblée :</strong> RT1 - Administrer les réseaux et l'Internet</p>
                 
-                <div class="ac-list">
-                    <h4 style="color: #64ffda; margin-bottom: 1rem;">Apprentissages Critiques travaillés :</h4>
-                    <div class="ac-item">
-                        <span class="ac-code">AC11.01</span>
-                        <span>Maîtriser les lois fondamentales de l'électricité</span>
-                    </div>
-                    <div class="ac-item">
-                        <span class="ac-code">AC11.03</span>
-                        <span>Configurer les fonctions de base du réseau local</span>
-                    </div>
-                    <div class="ac-item">
-                        <span class="ac-code">AC11.06</span>
-                        <span>Installer un poste client, expliquer la procédure</span>
-                    </div>
-                </div>
+                <h4 style="color: #64ffda;">Mes réalisations :</h4>
+                <ul>
+                    <li><strong>Configuration réseau LAN :</strong> Mise en place d'un réseau local avec switch et routeur</li>
+                    <li><strong>Plan d'adressage IP :</strong> Conception d'un plan d'adressage IPv4 avec subnetting</li>
+                    <li><strong>Installation postes clients :</strong> Déploiement automatisé de Windows et Linux</li>
+                </ul>
 
-                <div class="reflection-box">
-                    <div class="reflection-title">Réflexion personnelle</div>
-                    <p>[Votre analyse personnelle pour cette SAÉ - même structure que SAÉ 1.01]</p>
+                <h4 style="color: #64ffda;">Mes documents et preuves :</h4>
+                
+                <div class="upload-zone" onclick="triggerFileUpload('sae102')">
+                    <p style="color: #64ffda; font-weight: bold;">📁 Cliquez pour ajouter vos documents</p>
+                    <p style="color: #b0bec5;">Configurations réseau, schémas, captures d'écran, rapports...</p>
+                    <input type="file" id="file-sae102" class="file-input" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.txt,.cfg,.pcap" onchange="handleFileUpload(event, 'sae102')">
+                </div>
+                
+                <div id="documents-sae102" class="document-list">
+                    <!-- Les documents ajoutés apparaîtront ici -->
+                </div>
+                
+                <div class="reflection-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
+                    <h4 style="color: #ffb800;">Réflexion personnelle</h4>
+                    <p><strong>Ce que j'ai appris :</strong> Bases de l'administration réseau et configuration d'équipements. La manipulation d'équipements réels m'a fait comprendre l'importance de la documentation.</p>
+                    <p><strong>Difficultés rencontrées :</strong> Le subnetting était conceptuellement difficile au début. Les erreurs de configuration m'ont appris l'importance de la méthodologie.</p>
+                    <p><strong>Auto-évaluation :</strong> Niveau acquis à 85%. Autonome sur les configurations de base et capable de diagnostiquer la plupart des problèmes.</p>
+                    <p><strong>Compétences transférables :</strong> Rigueur, documentation technique, résolution méthodique de problèmes.</p>
                 </div>
             </div>
 
-            <!-- Indication pour les autres SAÉ -->
-            <div style="text-align: center; padding: 3rem; background: rgba(100, 255, 218, 0.05); border-radius: 20px; border: 1px solid rgba(100, 255, 218, 0.2);">
-                <p style="color: #64ffda; font-size: 1.2rem; margin-bottom: 1rem;">📝 <em>Continuez à documenter toutes vos SAÉ selon ce modèle...</em></p>
-                <p style="color: #b0bec5;"><strong>SAÉ à inclure :</strong> 1.03, 1.04, 1.05, 2.01, 2.02, 2.03, 2.04, etc.</p>
-                <p style="color: #b0bec5; font-size: 0.9rem; margin-top: 1rem;">Chaque SAÉ doit contenir : Description, AC travaillés, Traces/réalisations, Réflexion personnelle</p>
+            <div class="card" style="margin: 2rem 0;">
+                <h3 style="margin-top: 0;">SAÉ 1.03 - Découvrir un dispositif de transmission</h3>
+                <p><strong>Compétence ciblée :</strong> RT2 - Connecter les entreprises et les usagers</p>
+                
+                <h4 style="color: #64ffda;">Mes réalisations :</h4>
+                <ul>
+                    <li><strong>Tests câblage cuivre Cat6 :</strong> Mesures d'atténuation, diaphonie, retard de propagation</li>
+                    <li><strong>Caractérisation fibre optique :</strong> Mesures de puissance optique, pertes par insertion</li>
+                    <li><strong>Rapport de certification :</strong> Document technique avec interprétation et recommandations</li>
+                </ul>
+
+                <h4 style="color: #64ffda;">Mes documents et preuves :</h4>
+                
+                <div class="upload-zone" onclick="triggerFileUpload('sae103')">
+                    <p style="color: #64ffda; font-weight: bold;">📁 Cliquez pour ajouter vos documents</p>
+                    <p style="color: #b0bec5;">Rapports de mesures, certificats, photos équipements, captures d'écran...</p>
+                    <input type="file" id="file-sae103" class="file-input" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.xlsx,.csv,.txt" onchange="handleFileUpload(event, 'sae103')">
+                </div>
+                
+                <div id="documents-sae103" class="document-list">
+                    <!-- Les documents ajoutés apparaîtront ici -->
+                </div>
+                
+                <div class="reflection-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
+                    <h4 style="color: #ffb800;">Réflexion personnelle</h4>
+                    <p><strong>Ce que j'ai appris :</strong> Importance des mesures physiques dans les télécommunications.</p>
+                    <p><strong>Auto-évaluation :</strong> Niveau acquis à 75%. Maîtrise des procédures de test.</p>
+                </div>
+            </div>
+
+            <div class="card" style="margin: 2rem 0;">
+                <h3 style="margin-top: 0;">SAÉ 1.04 - Se présenter sur Internet</h3>
+                <p><strong>Compétence ciblée :</strong> RT3 - Créer des outils et applications informatiques</p>
+                
+                <h4 style="color: #64ffda;">Mes réalisations :</h4>
+                <ul>
+                    <li><strong>Site web personnel responsive :</strong> Portfolio HTML5/CSS3/JavaScript</li>
+                    <li><strong>CV numérique interactif :</strong> Version web enrichie du CV avec animations</li>
+                    <li><strong>Analyse d'identité numérique :</strong> Étude des traces numériques personnelles</li>
+                </ul>
+
+                <h4 style="color: #64ffda;">Mes documents et preuves :</h4>
+                
+                <div class="upload-zone" onclick="triggerFileUpload('sae104')">
+                    <p style="color: #64ffda; font-weight: bold;">📁 Cliquez pour ajouter vos documents</p>
+                    <p style="color: #b0bec5;">Code source, captures d'écran, maquettes, rapport identité numérique...</p>
+                    <input type="file" id="file-sae104" class="file-input" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.html,.css,.js,.zip" onchange="handleFileUpload(event, 'sae104')">
+                </div>
+                
+                <div id="documents-sae104" class="document-list">
+                    <!-- Les documents ajoutés apparaîtront ici -->
+                </div>
+                
+                <div class="reflection-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
+                    <h4 style="color: #ffb800;">Réflexion personnelle</h4>
+                    <p><strong>Ce que j'ai appris :</strong> Développement web et importance de l'identité numérique.</p>
+                    <p><strong>Auto-évaluation :</strong> Niveau acquis à 90%. Maîtrise des technologies web de base.</p>
+                </div>
+            </div>
+
+            <div class="card" style="margin: 2rem 0;">
+                <h3 style="margin-top: 0;">SAÉ 1.05 - Traiter des données</h3>
+                <p><strong>Compétence ciblée :</strong> RT3 - Créer des outils et applications informatiques</p>
+                
+                <h4 style="color: #64ffda;">Mes réalisations :</h4>
+                <ul>
+                    <li><strong>Script d'analyse de logs :</strong> Programme Python pour extraire et analyser les logs</li>
+                    <li><strong>Dashboard réseau automatisé :</strong> Interface web affichant les statistiques réseau en temps réel</li>
+                    <li><strong>Base de données inventaire :</strong> Système de gestion des équipements IT</li>
+                </ul>
+
+                <h4 style="color: #64ffda;">Mes documents et preuves :</h4>
+                
+                <div class="upload-zone" onclick="triggerFileUpload('sae105')">
+                    <p style="color: #64ffda; font-weight: bold;">📁 Cliquez pour ajouter vos documents</p>
+                    <p style="color: #b0bec5;">Code Python, bases de données, captures dashboard, rapports d'analyse...</p>
+                    <input type="file" id="file-sae105" class="file-input" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.py,.sql,.csv,.xlsx,.html" onchange="handleFileUpload(event, 'sae105')">
+                </div>
+                
+                <div id="documents-sae105" class="document-list">
+                    <!-- Les documents ajoutés apparaîtront ici -->
+                </div>
+                
+                <div class="reflection-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
+                    <h4 style="color: #ffb800;">Réflexion personnelle</h4>
+                    <p><strong>Ce que j'ai appris :</strong> Programmation Python et automatisation système.</p>
+                    <p><strong>Auto-évaluation :</strong> Niveau acquis à 88%. Autonome en programmation.</p>
+                </div>
+            </div>
+
+            <h3>SEMESTRE 2 - Approfondissement</h3>
+
+            <div class="card" style="margin: 2rem 0;">
+                <h3 style="margin-top: 0;">SAÉ 2.01 - Construire un réseau informatique pour une petite structure</h3>
+                <p><strong>Compétence ciblée :</strong> RT1 - Administrer les réseaux et l'Internet</p>
+                
+                <h4 style="color: #64ffda;">Mes réalisations :</h4>
+                <ul>
+                    <li><strong>Architecture réseau multi-sites :</strong> Conception complète d'un réseau d'entreprise avec 3 sites</li>
+                    <li><strong>Configuration VLAN avancée :</strong> Mise en place VTP, routage inter-VLAN, ACL de sécurité</li>
+                    <li><strong>Services réseau intégrés :</strong> Déploiement DNS, DHCP, NAT/PAT, serveur web</li>
+                </ul>
+
+                <h4 style="color: #64ffda;">Mes documents et preuves :</h4>
+                
+                <div class="upload-zone" onclick="triggerFileUpload('sae201')">
+                    <p style="color: #64ffda; font-weight: bold;">📁 Cliquez pour ajouter vos documents</p>
+                    <p style="color: #b0bec5;">Plans réseau, configurations avancées, documentation technique, tests de connectivité...</p>
+                    <input type="file" id="file-sae201" class="file-input" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.vsd,.cfg,.txt,.pcap" onchange="handleFileUpload(event, 'sae201')">
+                </div>
+                
+                <div id="documents-sae201" class="document-list">
+                    <!-- Les documents ajoutés apparaîtront ici -->
+                </div>
+                
+                <div class="reflection-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
+                    <h4 style="color: #ffb800;">Réflexion personnelle</h4>
+                    <p><strong>Ce que j'ai appris :</strong> Vision globale de l'architecture réseau d'entreprise.</p>
+                    <p><strong>Auto-évaluation :</strong> Niveau acquis à 82%. Maîtrise des technologies réseau avancées.</p>
+                </div>
+            </div>
+
+            <div class="card" style="margin: 2rem 0;">
+                <h3 style="margin-top: 0;">SAÉ 2.02 - Mesurer et caractériser un signal ou un système</h3>
+                <p><strong>Compétence ciblée :</strong> RT2 - Connecter les entreprises et les usagers</p>
+                
+                <h4 style="color: #64ffda;">Mes réalisations :</h4>
+                <ul>
+                    <li><strong>Cartographie radio 4G/5G :</strong> Mesures de puissance et qualité sur le campus</li>
+                    <li><strong>Caractérisation antenne WiFi :</strong> Diagramme de rayonnement, gain, adaptation d'impédance</li>
+                    <li><strong>Rapport technique client :</strong> Document professionnel avec recommandations</li>
+                </ul>
+
+                <h4 style="color: #64ffda;">Mes documents et preuves :</h4>
+                
+                <div class="upload-zone" onclick="triggerFileUpload('sae202')">
+                    <p style="color: #64ffda; font-weight: bold;">📁 Cliquez pour ajouter vos documents</p>
+                    <p style="color: #b0bec5;">Mesures RF, cartographies, rapports d'analyse, photos équipements...</p>
+                    <input type="file" id="file-sae202" class="file-input" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.xlsx,.csv,.mp4,.mov" onchange="handleFileUpload(event, 'sae202')">
+                </div>
+                
+                <div id="documents-sae202" class="document-list">
+                    <!-- Les documents ajoutés apparaîtront ici -->
+                </div>
+                
+                <div class="reflection-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
+                    <h4 style="color: #ffb800;">Réflexion personnelle</h4>
+                    <p><strong>Ce que j'ai appris :</strong> Systèmes de transmission radio et analyse spectrale.</p>
+                    <p><strong>Auto-évaluation :</strong> Niveau acquis à 78%. Maîtrise des outils de mesure.</p>
+                </div>
+            </div>
+
+            <div class="card" style="margin: 2rem 0;">
+                <h3 style="margin-top: 0;">SAÉ 2.03 - Mettre en place une solution informatique pour l'entreprise</h3>
+                <p><strong>Compétence ciblée :</strong> RT3 - Créer des outils et applications informatiques</p>
+                
+                <h4 style="color: #64ffda;">Mes réalisations :</h4>
+                <ul>
+                    <li><strong>Application web de ticketing :</strong> Système complet de gestion des incidents IT</li>
+                    <li><strong>Interface de monitoring réseau :</strong> Dashboard temps réel avec alertes et graphiques</li>
+                    <li><strong>API REST pour inventaire :</strong> Service web pour intégration avec systèmes existants</li>
+                </ul>
+
+                <h4 style="color: #64ffda;">Mes documents et preuves :</h4>
+                
+                <div class="upload-zone" onclick="triggerFileUpload('sae203')">
+                    <p style="color: #64ffda; font-weight: bold;">📁 Cliquez pour ajouter vos documents</p>
+                    <p style="color: #b0bec5;">Code source, documentation API, captures application, diagrammes UML...</p>
+                    <input type="file" id="file-sae203" class="file-input" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.html,.css,.js,.php,.py,.sql,.zip" onchange="handleFileUpload(event, 'sae203')">
+                </div>
+                
+                <div id="documents-sae203" class="document-list">
+                    <!-- Les documents ajoutés apparaîtront ici -->
+                </div>
+                
+                <div class="reflection-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
+                    <h4 style="color: #ffb800;">Réflexion personnelle</h4>
+                    <p><strong>Ce que j'ai appris :</strong> Développement web full-stack et gestion de projet.</p>
+                    <p><strong>Auto-évaluation :</strong> Niveau acquis à 90%. Autonome sur le développement complet.</p>
+                </div>
+            </div>
+
+            <div class="card" style="margin: 2rem 0;">
+                <h3 style="margin-top: 0;">SAÉ 2.04 - Projet intégratif</h3>
+                <p><strong>Compétences ciblées :</strong> RT1, RT2, RT3 - Approche transversale</p>
+                
+                <h4 style="color: #64ffda;">Mes réalisations :</h4>
+                <ul>
+                    <li><strong>Infrastructure complète PME :</strong> Déploiement réseau, téléphonie IP, Wi-Fi, sécurité pour 50 postes</li>
+                    <li><strong>Documentation technique :</strong> Plans réseau, procédures, guide administrateur, formation utilisateurs</li>
+                    <li><strong>Soutenance projet :</strong> Présentation devant jury professionnel avec démonstration en live</li>
+                </ul>
+
+                <h4 style="color: #64ffda;">Mes documents et preuves :</h4>
+                
+                <div class="upload-zone" onclick="triggerFileUpload('sae204')">
+                    <p style="color: #64ffda; font-weight: bold;">📁 Cliquez pour ajouter vos documents</p>
+                    <p style="color: #b0bec5;">Dossier projet complet, soutenance, démonstrations, évaluations jury...</p>
+                    <input type="file" id="file-sae204" class="file-input" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.mp4,.mov,.zip,.cfg,.vsd" onchange="handleFileUpload(event, 'sae204')">
+                </div>
+                
+                <div id="documents-sae204" class="document-list">
+                    <!-- Les documents ajoutés apparaîtront ici -->
+                </div>
+                
+                <div class="reflection-box" style="background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
+                    <h4 style="color: #ffb800;">Réflexion personnelle</h4>
+                    <p><strong>Ce que j'ai appris :</strong> Synthèse de tous les apprentissages dans un contexte réel.</p>
+                    <p><strong>Auto-évaluation :</strong> Niveau acquis à 85%. Prêt pour des projets d'envergure.</p>
+                </div>
             </div>
         </section>
-        
-        <!-- Section Projection -->
+
+        <!-- PROJECTION -->
         <section id="projection" class="section">
             <h2>Projection et Évaluation Globale</h2>
             
-            <h3 style="color: #64ffda; margin-bottom: 2rem; font-size: 1.8rem;">Bilan de mes apprentissages</h3>
-            <div class="reflection-box" style="background: rgba(100, 255, 218, 0.1); border-color: rgba(100, 255, 218, 0.3);">
-                <div style="color: #64ffda; font-weight: bold; margin-bottom: 1rem; font-size: 1.2rem;">🎓 Synthèse de ma progression</div>
-                <p style="margin-bottom: 1rem;"><strong style="color: #64ffda;">Travail accompli :</strong> [Synthèse de ce que vous avez réalisé durant cette période]</p>
-                <p style="margin-bottom: 1rem;"><strong style="color: #64ffda;">Progrès constatés :</strong> [Décrivez votre évolution et les compétences acquises]</p>
-                <p style="margin-bottom: 1rem;"><strong style="color: #64ffda;">Points forts identifiés :</strong> [Vos domaines de prédilection]</p>
-                <p><strong style="color: #64ffda;">Axes d'amélioration :</strong> [Ce sur quoi vous devez encore travailler]</p>
+            <h3>Bilan de mes apprentissages</h3>
+            <div class="info-box">
+                <h4 style="color: #64ffda;">Synthèse de ma progression</h4>
+                <p><strong>Travail accompli :</strong> Au cours de cette première année de BUT R&T, j'ai mené à bien 8 SAÉ couvrant l'ensemble du spectre des compétences. J'ai développé une base solide en administration réseau, découvert les systèmes de transmission et renforcé mes compétences en développement.</p>
+                
+                <p><strong>Progrès constatés :</strong> Ma progression la plus notable concerne le développement d'applications (RT3 - 85%) où mon expérience antérieure en STI2D m'a aidé. J'ai également bien progressé en administration réseau.</p>
+                
+                <p><strong>Points forts identifiés :</strong> Capacité d'adaptation rapide aux nouvelles technologies, aptitude à la résolution de problèmes complexes, compétences transversales en gestion de projet.</p>
+                
+                <p><strong>Axes d'amélioration :</strong> Je dois encore approfondir mes connaissances en cybersécurité (68%) et en systèmes de transmission avancés.</p>
             </div>
 
-            <h3 style="color: #64ffda; margin: 3rem 0 2rem 0; font-size: 1.8rem;">Perspectives d'évolution</h3>
-            <ul class="objectives-list">
-                <li>Plan de progression pour le semestre suivant</li>
-                <li>Objectifs de spécialisation</li>
-                <li>Préparation à l'insertion professionnelle</li>
-                <li>Projets personnels envisagés</li>
-            </ul>
+            <h3>Perspectives d'évolution</h3>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3 style="margin-top: 0;">Objectifs S3-S4</h3>
+                    <ul>
+                        <li>Approfondir la cybersécurité et les audits de sécurité</li>
+                        <li>Maîtriser les technologies télécoms avancées (5G, IoT)</li>
+                        <li>Développer des compétences en virtualisation et cloud</li>
+                        <li>Préparer activement mon stage de fin de 2ème année</li>
+                    </ul>
+                </div>
 
-            <div style="text-align: center; margin-top: 4rem; padding: 3rem; background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), rgba(0, 188, 212, 0.1)); border-radius: 20px; border: 1px solid rgba(100, 255, 218, 0.3);">
-                <h3 style="color: #64ffda; margin-bottom: 2rem; font-size: 2rem;">📈 Mon niveau global de progression</h3>
-                <div style="max-width: 500px; margin: 0 auto;">
-                    <div class="progress-bar" style="height: 20px; margin-bottom: 1rem;">
-                        <div class="progress-fill" style="width: 71%; display: flex; align-items: center; justify-content: center; color: #0a0f1c; font-weight: bold;">71% des compétences acquises</div>
-                    </div>
-                    <p style="color: #b0bec5;">Progression satisfaisante vers les objectifs fixés</p>
+                <div class="card">
+                    <h3 style="margin-top: 0;">Insertion Professionnelle</h3>
+                    <ul>
+                        <li>Recherche de stage en cybersécurité ou administration réseau</li>
+                        <li>Préparation aux certifications CCNA et CompTIA Security+</li>
+                        <li>Construction d'un réseau professionnel solide</li>
+                        <li>Participation à des événements du secteur</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 style="margin-top: 0;">Projets Personnels</h3>
+                    <ul>
+                        <li>Création d'un lab réseau personnel (simulation GNS3)</li>
+                        <li>Contribution à des projets open source</li>
+                        <li>Participation à des CTF cybersécurité</li>
+                        <li>Blog technique pour partager mes apprentissages</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 style="margin-top: 0;">Formation Continue</h3>
+                    <ul>
+                        <li>Veille technologique constante</li>
+                        <li>Formations complémentaires en cybersécurité</li>
+                        <li>Amélioration de l'anglais technique</li>
+                        <li>Préparation d'une éventuelle poursuite en master</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Footer du portfolio -->
-            <div style="margin-top: 5rem; text-align: center; padding: 2rem; border-top: 1px solid rgba(100, 255, 218, 0.2);">
-                <p style="color: #64ffda; font-size: 1.1rem; margin-bottom: 0.5rem;">Portfolio réalisé dans le cadre du BUT Réseaux et Télécommunications</p>
-                <p style="color: #b0bec5;">IUT Grand Ouest Normandie • 2024-2025</p>
+            <div class="info-box" style="text-align: center; background: rgba(100, 255, 218, 0.2);">
+                <h3>Mon niveau global de progression</h3>
+                <div class="progress-bar" style="height: 30px; max-width: 600px; margin: 2rem auto;">
+                    <div class="progress-fill" style="width: 76%; font-size: 1.1rem;">76% des compétences BUT R&T acquises</div>
+                </div>
+                <p style="color: #64ffda; font-weight: 600; font-size: 1.2rem;">Prêt pour les défis du semestre 3 et la recherche de stage !</p>
+            </div>
+
+            <div class="info-box" style="text-align: center; background: rgba(255, 184, 0, 0.1); border-left-color: #ffb800;">
+                <h3 style="color: #ffb800;">Message de conclusion</h3>
+                <p>Cette première année de BUT R&T a été une expérience enrichissante qui m'a permis de confirmer mon orientation professionnelle. Les compétences techniques acquises, couplées au développement de mes capacités de communication et de gestion de projet, constituent une base solide pour la suite de mon parcours.</p>
+                <p style="color: #64ffda; font-weight: 600; margin-top: 1.5rem; font-size: 1.1rem;">
+                    Direction : Semestre 3 et spécialisation en cybersécurité !
+                </p>
+            </div>
+
+            <!-- Footer -->
+            <div style="margin-top: 4rem; text-align: center; padding: 2rem; border-top: 2px solid #64ffda;">
+                <p style="color: #64ffda; font-size: 1.2rem; margin-bottom: 0.5rem; font-weight: 600;">Portfolio réalisé dans le cadre du BUT Réseaux et Télécommunications</p>
+                <p style="margin-bottom: 0.5rem;">Leconte Enzo • 1ère année BUT R&T</p>
+                <p style="margin-bottom: 1rem;">IUT Grand Ouest Normandie • 2024-2025</p>
+                <p><strong>Email :</strong> enzo.leconte@etu.unicaen.fr</p>
             </div>
         </section>
     </div>
 
+    <!-- Modal pour visualiser les documents -->
+    <div id="documentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle" style="color: #64ffda; margin-bottom: 20px;">Visualisation du document</h3>
+            <div id="documentViewer" class="document-viewer">
+                <!-- Le contenu du document sera affiché ici -->
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Variables globales pour Three.js
-        let scene, camera, renderer, particles = [];
-        let mouse = { x: 0, y: 0 };
-        let targetMouse = { x: 0, y: 0 };
-        let time = 0;
+        // Stockage des documents par SAÉ
+        const documentsStorage = {};
 
-        // Initialisation Three.js
-        function initThree() {
-            scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 50;
-
-            renderer = new THREE.WebGLRenderer({ 
-                canvas: document.getElementById('canvas'),
-                antialias: true,
-                alpha: true 
-            });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setClearColor(0x000000, 0);
-
-            createParticleField();
-            animate();
+        // Fonction pour déclencher le sélecteur de fichier
+        function triggerFileUpload(saeId) {
+            document.getElementById('file-' + saeId).click();
         }
 
-        // Création du champ de particules
-        function createParticleField() {
-            const geometry = new THREE.BufferGeometry();
-            const particleCount = 150;
-            const positions = new Float32Array(particleCount * 3);
-            const colors = new Float32Array(particleCount * 3);
-            const sizes = new Float32Array(particleCount);
-
-            for (let i = 0; i < particleCount; i++) {
-                const i3 = i * 3;
-                
-                // Positions
-                positions[i3] = (Math.random() - 0.5) * 200;
-                positions[i3 + 1] = (Math.random() - 0.5) * 200;
-                positions[i3 + 2] = (Math.random() - 0.5) * 100;
-                
-                // Couleurs (cyan/turquoise)
-                const intensity = Math.random();
-                colors[i3] = 0.4 + intensity * 0.6;     // R
-                colors[i3 + 1] = 1.0;                   // G
-                colors[i3 + 2] = 0.85 + intensity * 0.15; // B
-                
-                // Tailles
-                sizes[i] = Math.random() * 3 + 1;
+        // Gestion de l'upload de fichiers
+        function handleFileUpload(event, saeId) {
+            const files = event.target.files;
+            
+            if (!documentsStorage[saeId]) {
+                documentsStorage[saeId] = [];
             }
 
-            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-            geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
-
-            const material = new THREE.ShaderMaterial({
-                uniforms: {
-                    time: { value: 0 },
-                    mouse: { value: new THREE.Vector2() }
-                },
-                vertexShader: `
-                    attribute float size;
-                    attribute vec3 color;
-                    varying vec3 vColor;
-                    uniform float time;
-                    uniform vec2 mouse;
-                    
-                    void main() {
-                        vColor = color;
-                        vec3 pos = position;
-                        
-                        // Mouvement de flottement
-                        pos.y += sin(time * 0.001 + position.x * 0.01) * 10.0;
-                        pos.x += cos(time * 0.001 + position.y * 0.01) * 5.0;
-                        
-                        // Influence de la souris
-                        vec2 mouseInfluence = mouse * 0.1;
-                        pos.xy += mouseInfluence;
-                        
-                        vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
-                        gl_PointSize = size * (300.0 / -mvPosition.z);
-                        gl_Position = projectionMatrix * mvPosition;
-                    }
-                `,
-                fragmentShader: `
-                    varying vec3 vColor;
-                    
-                    void main() {
-                        float distanceToCenter = distance(gl_PointCoord, vec2(0.5));
-                        float alpha = 1.0 - smoothstep(0.0, 0.5, distanceToCenter);
-                        gl_FragColor = vec4(vColor, alpha * 0.6);
-                    }
-                `,
-                transparent: true,
-                blending: THREE.AdditiveBlending
-            });
-
-            const particleSystem = new THREE.Points(geometry, material);
-            scene.add(particleSystem);
-            particles.push(particleSystem);
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const fileData = {
+                    name: file.name,
+                    size: file.size,
+                    type: file.type,
+                    file: file,
+                    uploadDate: new Date().toLocaleDateString('fr-FR')
+                };
+                
+                documentsStorage[saeId].push(fileData);
+            }
+            
+            displayDocuments(saeId);
         }
 
-        // Animation principale
-        function animate() {
-            requestAnimationFrame(animate);
-            time += 16;
-
-            // Interpolation douce de la souris
-            mouse.x += (targetMouse.x - mouse.x) * 0.05;
-            mouse.y += (targetMouse.y - mouse.y) * 0.05;
-
-            // Rotation subtile de la caméra
-            camera.position.x = Math.sin(time * 0.0005) * 5;
-            camera.position.y = Math.cos(time * 0.0007) * 3;
-            camera.lookAt(scene.position);
-
-            // Mise à jour des shaders
-            particles.forEach(particle => {
-                particle.material.uniforms.time.value = time;
-                particle.material.uniforms.mouse.value.set(mouse.x * 0.1, mouse.y * 0.1);
-                particle.rotation.y += 0.001;
+        // Afficher les documents d'une SAÉ
+        function displayDocuments(saeId) {
+            const container = document.getElementById('documents-' + saeId);
+            const documents = documentsStorage[saeId] || [];
+            
+            container.innerHTML = '';
+            
+            documents.forEach((doc, index) => {
+                const docElement = document.createElement('div');
+                docElement.className = 'document-item';
+                docElement.onclick = () => openDocument(doc);
+                
+                const icon = getFileIcon(doc.type);
+                const size = formatFileSize(doc.size);
+                
+                docElement.innerHTML = `
+                    <div class="document-icon">${icon}</div>
+                    <div style="display: inline-block; flex-grow: 1;">
+                        <div class="document-title">${doc.name}</div>
+                        <div class="document-meta">
+                            ${size} • Ajouté le ${doc.uploadDate}
+                            <button onclick="event.stopPropagation(); removeDocument('${saeId}', ${index})" 
+                                    style="background: #ff4444; color: white; border: none; padding: 2px 8px; border-radius: 3px; margin-left: 10px; cursor: pointer;">
+                                Supprimer
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(docElement);
             });
-
-            renderer.render(scene, camera);
         }
 
-        // Event listeners
-        document.addEventListener('mousemove', (e) => {
-            targetMouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-            targetMouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
-        });
+        // Obtenir l'icône selon le type de fichier
+        function getFileIcon(type) {
+            if (type.includes('pdf')) return 'PDF';
+            if (type.includes('word') || type.includes('document')) return 'DOC';
+            if (type.includes('powerpoint') || type.includes('presentation')) return 'PPT';
+            if (type.includes('image')) return 'IMG';
+            if (type.includes('video')) return 'VID';
+            if (type.includes('text')) return 'TXT';
+            return 'FILE';
+        }
 
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
+        // Formater la taille du fichier
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
 
-        // Navigation entre les sections
-        document.addEventListener('DOMContentLoaded', function() {
-            const navItems = document.querySelectorAll('.nav-item');
-            const sections = document.querySelectorAll('.section, .header');
+        // Ouvrir un document dans la modal
+        function openDocument(doc) {
+            const modal = document.getElementById('documentModal');
+            const title = document.getElementById('modalTitle');
+            const viewer = document.getElementById('documentViewer');
+            
+            title.textContent = doc.name;
+            
+            // Créer l'URL du fichier
+            const fileUrl = URL.createObjectURL(doc.file);
+            
+            // Afficher selon le type de fichier
+            if (doc.type.includes('pdf')) {
+                viewer.innerHTML = `<iframe src="${fileUrl}" width="100%" height="100%" style="border: none;"></iframe>`;
+            } else if (doc.type.includes('image')) {
+                viewer.innerHTML = `<img src="${fileUrl}" style="max-width: 100%; max-height: 100%; object-fit: contain;" alt="${doc.name}">`;
+            } else if (doc.type.includes('video')) {
+                viewer.innerHTML = `<video controls style="max-width: 100%; max-height: 100%;" src="${fileUrl}"></video>`;
+            } else if (doc.type.includes('text')) {
+                // Lire le contenu texte
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    viewer.innerHTML = `<pre style="white-space: pre-wrap; padding: 20px; background: #000; color: #64ffda; height: 100%; overflow: auto;">${e.target.result}</pre>`;
+                };
+                reader.readAsText(doc.file);
+            } else {
+                viewer.innerHTML = `
+                    <div style="text-align: center; padding: 50px; color: #64ffda;">
+                        <h3>Aperçu non disponible</h3>
+                        <p>Type de fichier : ${doc.type}</p>
+                        <p>Taille : ${formatFileSize(doc.size)}</p>
+                        <button onclick="downloadFile('${doc.name}', '${fileUrl}')" class="add-document-btn" style="margin-top: 20px;">
+                            Télécharger le fichier
+                        </button>
+                    </div>
+                `;
+            }
+            
+            modal.style.display = 'block';
+        }
 
-            // Intersection Observer pour les animations au scroll
-            const observerOptions = {
-                threshold: 0.3,
-                rootMargin: '0px 0px -100px 0px'
-            };
+        // Fermer la modal
+        function closeModal() {
+            const modal = document.getElementById('documentModal');
+            modal.style.display = 'none';
+            
+            // Nettoyer les URLs créées
+            const viewer = document.getElementById('documentViewer');
+            const iframe = viewer.querySelector('iframe');
+            const img = viewer.querySelector('img');
+            const video = viewer.querySelector('video');
+            
+            if (iframe && iframe.src.startsWith('blob:')) {
+                URL.revokeObjectURL(iframe.src);
+            }
+            if (img && img.src.startsWith('blob:')) {
+                URL.revokeObjectURL(img.src);
+            }
+            if (video && video.src.startsWith('blob:')) {
+                URL.revokeObjectURL(video.src);
+            }
+        }
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        
-                        // Mettre à jour la navigation active
-                        const sectionId = entry.target.id;
-                        navItems.forEach(item => {
-                            item.classList.remove('active');
-                            if (item.getAttribute('data-section') === sectionId) {
-                                item.classList.add('active');
-                            }
-                        });
-                    }
-                });
-            }, observerOptions);
+        // Supprimer un document
+        function removeDocument(saeId, index) {
+            if (confirm('Êtes-vous sûr de vouloir supprimer ce document ?')) {
+                documentsStorage[saeId].splice(index, 1);
+                displayDocuments(saeId);
+            }
+        }
 
-            sections.forEach(section => {
-                observer.observe(section);
+        // Télécharger un fichier
+        function downloadFile(filename, url) {
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // Fermer la modal en cliquant à côté
+        window.onclick = function(event) {
+            const modal = document.getElementById('documentModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Navigation simple
+        document.querySelectorAll('.nav-simple a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
-
-            // Navigation au clic
-            navItems.forEach(item => {
-                item.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetId = item.getAttribute('data-section');
-                    const targetSection = document.getElementById(targetId);
-                    
-                    if (targetSection) {
-                        targetSection.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-
-            // Animation des barres de progression au scroll
-            const progressBars = document.querySelectorAll('.progress-fill');
-            const progressObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const progressBar = entry.target;
-                        const width = progressBar.style.width;
-                        progressBar.style.width = '0%';
-                        setTimeout(() => {
-                            progressBar.style.width = width;
-                        }, 500);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            progressBars.forEach(bar => {
-                progressObserver.observe(bar);
-            });
         });
-
-        // Initialisation
-        initThree();
     </script>
 </body>
-</html>
+</html> 
